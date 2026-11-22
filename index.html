@@ -156,6 +156,105 @@
         </div>
       </div>
 
+      <!-- Search & Visual Roadmap Bar -->
+      <div style="margin-bottom:1.5rem; display:flex; flex-direction:column; gap:1.25rem;">
+        
+        <!-- Live Search Input -->
+        <div style="position:relative;">
+          <input type="text" id="curriculum-search" placeholder="🔍 ابحث بالكلمة أو القاعدة أو المصطلح (مثال: Inversion, Collocations, IELTS, Method, شروط...)" oninput="renderCurriculum(this.value)" style="width:100%; padding:0.85rem 1.25rem; font-size:0.95rem; font-family:inherit; border-radius:var(--radius-md); border:1px solid var(--border-color); background:var(--bg-card); color:var(--text-dark); box-shadow:var(--shadow-sm);">
+        </div>
+
+        <!-- Visual Roadmap Infographic -->
+        <div class="content-card" style="padding:1.25rem 1.5rem; background:linear-gradient(135deg, var(--bg-card), rgba(59,130,246,0.03));">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; flex-wrap:wrap; gap:0.5rem;">
+            <h3 style="font-size:1.05rem; font-weight:800; color:var(--primary); display:flex; align-items:center; gap:0.4rem;">
+              <span>🗺️</span> خارطة الطريق الأكاديمية (The Master's & Fluency Pathway)
+            </h3>
+            <span style="font-size:0.8rem; font-weight:700; color:var(--secondary); background:rgba(13,148,136,0.1); padding:0.25rem 0.65rem; border-radius:50px;">
+              تتبع المسار خطوة بخطوة
+            </span>
+          </div>
+
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:0.85rem; position:relative;">
+            
+            <div style="background:var(--bg-main); padding:0.85rem 1rem; border-radius:var(--radius-md); border-right:4px solid #3b82f6;">
+              <span style="font-size:0.75rem; font-weight:800; color:#3b82f6;">المرحلة 1 • A2-B1</span>
+              <h4 style="font-size:0.95rem; font-weight:800; margin:0.2rem 0;">الأساس وتركيب الجمل</h4>
+              <p style="font-size:0.8rem; color:var(--text-muted);">بناء الجمل المركبة وإتقان الأزمنة والمحادثة اليومية.</p>
+            </div>
+
+            <div style="background:var(--bg-main); padding:0.85rem 1rem; border-radius:var(--radius-md); border-right:4px solid #10b981;">
+              <span style="font-size:0.75rem; font-weight:800; color:#10b981;">المرحلة 2 • B2</span>
+              <h4 style="font-size:0.95rem; font-weight:800; margin:0.2rem 0;">الطلاقة والتعبير الراقي</h4>
+              <p style="font-size:0.8rem; color:var(--text-muted);">Inversion, Collocations, التفكير النقدي ولغة التحوط.</p>
+            </div>
+
+            <div style="background:var(--bg-main); padding:0.85rem 1rem; border-radius:var(--radius-md); border-right:4px solid #8b5cf6;">
+              <span style="font-size:0.75rem; font-weight:800; color:#8b5cf6;">المرحلة 3 • B2+ / C1</span>
+              <h4 style="font-size:0.95rem; font-weight:800; margin:0.2rem 0;">الإنجليزية الأكاديمية و AWL</h4>
+              <p style="font-size:0.8rem; color:var(--text-muted);">قراءة الأبحاث ومراسلة الأساتذة وصياغة الملخصات.</p>
+            </div>
+
+            <div style="background:var(--bg-main); padding:0.85rem 1rem; border-radius:var(--radius-md); border-right:4px solid #f59e0b;">
+              <span style="font-size:0.75rem; font-weight:800; color:#f59e0b;">المرحلة 4 • IELTS / TOEFL</span>
+              <h4 style="font-size:0.95rem; font-weight:800; margin:0.2rem 0;">اختبارات الآيلتس والتوفل</h4>
+              <p style="font-size:0.8rem; color:var(--text-muted);">استراتيجيات 7.5+ و 100+ مع محاكاة الأسئلة الصعبة.</p>
+            </div>
+
+            <div style="background:var(--bg-main); padding:0.85rem 1rem; border-radius:var(--radius-md); border-right:4px solid #ef4444;">
+              <span style="font-size:0.75rem; font-weight:800; color:#ef4444;">المرحلة 5 • Master's</span>
+              <h4 style="font-size:0.95rem; font-weight:800; margin:0.2rem 0;">قبول المنح والسفر</h4>
+              <p style="font-size:0.8rem; color:var(--text-muted);">كتابة SOP احترافي، اجتياز المقابلة، والسفر للدراسة.</p>
+            </div>
+
+          </div>
+
+          <!-- Equivalence Matrix Toggle Details -->
+          <details style="margin-top:1rem; cursor:pointer;">
+            <summary style="font-size:0.86rem; font-weight:700; color:var(--primary); outline:none;">
+              📊 عرض جدول مقارنة الدرجات المعيارية (IELTS vs TOEFL vs CEFR) للمنح
+            </summary>
+            <div style="overflow-x:auto; margin-top:0.75rem;">
+              <table style="width:100%; border-collapse:collapse; font-size:0.85rem; text-align:center;">
+                <thead>
+                  <tr style="background:var(--bg-main); color:var(--text-dark); border-bottom:2px solid var(--border-color);">
+                    <th style="padding:0.6rem; border:1px solid var(--border-color);">مستوى CEFR</th>
+                    <th style="padding:0.6rem; border:1px solid var(--border-color);">IELTS Academic</th>
+                    <th style="padding:0.6rem; border:1px solid var(--border-color);">TOEFL iBT</th>
+                    <th style="padding:0.6rem; border:1px solid var(--border-color);">Duolingo (DET)</th>
+                    <th style="padding:0.6rem; border:1px solid var(--border-color);">جاهزية المنح الدراسية (Master's)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="padding:0.6rem; border:1px solid var(--border-color); font-weight:700; color:var(--success);">C1 (Advanced)</td>
+                    <td style="padding:0.6rem; border:1px solid var(--border-color); font-weight:700;">7.0 - 8.0</td>
+                    <td style="padding:0.6rem; border:1px solid var(--border-color); font-weight:700;">94 - 110</td>
+                    <td style="padding:0.6rem; border:1px solid var(--border-color); font-weight:700;">125 - 140</td>
+                    <td style="padding:0.6rem; border:1px solid var(--border-color); color:var(--success); font-weight:700;">قبول غير مشروط في أكسفورد وتشيفنينغ وفولبرايت</td>
+                  </tr>
+                  <tr>
+                    <td style="padding:0.6rem; border:1px solid var(--border-color); font-weight:700; color:var(--primary);">B2 (Upper-Int)</td>
+                    <td style="padding:0.6rem; border:1px solid var(--border-color); font-weight:700;">6.0 - 6.5</td>
+                    <td style="padding:0.6rem; border:1px solid var(--border-color); font-weight:700;">75 - 93</td>
+                    <td style="padding:0.6rem; border:1px solid var(--border-color); font-weight:700;">105 - 120</td>
+                    <td style="padding:0.6rem; border:1px solid var(--border-color);">مقبول في أغلب برامج إيراسموس ومنح تركيا وداد</td>
+                  </tr>
+                  <tr>
+                    <td style="padding:0.6rem; border:1px solid var(--border-color); font-weight:700; color:var(--text-muted);">B1 (Intermediate)</td>
+                    <td style="padding:0.6rem; border:1px solid var(--border-color);">4.5 - 5.5</td>
+                    <td style="padding:0.6rem; border:1px solid var(--border-color);">45 - 65</td>
+                    <td style="padding:0.6rem; border:1px solid var(--border-color);">75 - 95</td>
+                    <td style="padding:0.6rem; border:1px solid var(--border-color); color:var(--danger);">يحتاج رفع المستوى عبر المستوى 2 و 3 قبل التقديم</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </details>
+        </div>
+
+      </div>
+
       <div class="levels-grid" id="levels-container">
         <!-- Rendered dynamically by js/app.js -->
       </div>
