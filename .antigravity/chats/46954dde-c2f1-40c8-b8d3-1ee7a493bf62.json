@@ -3,7 +3,7 @@
   "name": "اريد ان اعمل لي منهج",
   "createdAt": "2026-11-22T10:17:23.750Z",
   "filename": "46954dde-c2f1-40c8-b8d3-1ee7a493bf62.json",
-  "geminiStarted": false,
+  "geminiStarted": true,
   "messages": [
     {
       "id": "926e726d-24f9-4ceb-bc0f-f7705b639b69",
@@ -15,6 +15,42 @@
       "parent_message_id": null,
       "created_at": "2026-11-22T10:18:10.848Z",
       "sender": "ios",
+      "is_cancelled": false
+    },
+    {
+      "id": "04b296fa-d757-46fa-8360-eeb78467f268",
+      "role": "agent",
+      "content": "أهلاً بك! سأساعدك في تصميم منهج دراسي مخصص ومدروس خطوة بخطوة للوصول إلى هدفك بأفضل طريقة.\n\nلتفصيل المنهج بدقة بما يناسبك، شاركني الإجابة على هذه النقاط السريعة:\n\n1. **المجال أو المهارة**: ما الذي تريد تعلمه تحديداً؟ (مثال: *تطوير الويب، الذكاء الاصطناعي، لغة أجنبية، الأمن السيبراني، التسويق، أو موضوع دراسي محدد...*)\n2. **مستواك الحالي**: هل تبدأ من الصفر تماماً أم لديك خلفية سابقة؟\n3. **الهدف والوقت المتاح**: ما هو هدفك النهائي (وظيفة، بناء مشروع، اجتياز اختبار...) وكم ساعة تقريباً يمكنك تخصيصها أسبوعياً؟\n\n> [!TIP]\n> يمكننا أيضاً تحويل هذا المنهج إلى **منصة ويب تفاعلية خاصة بك** مع لوحة تحكم تتابع فيها تقدمك، وتضع علامة صح على الدروس المنجزة، وتصل للمراجع والمشاريع العملية مباشرة!",
+      "status": "completed",
+      "model": "gemini-3.8-flash-high",
+      "client_type": "gemini-bridge",
+      "parent_message_id": "926e726d-24f9-4ceb-bc0f-f7705b639b69",
+      "created_at": "2026-11-22T10:18:46.653Z",
+      "sender": "macOS",
+      "is_cancelled": false
+    },
+    {
+      "id": "c215412b-8660-4c6a-a339-df4bcc48cff3",
+      "role": "user",
+      "content": "اسال ايش من منهج قبل ان تبدأ",
+      "status": "pending",
+      "model": "gemini-3.8-flash-high",
+      "client_type": "gemini-bridge",
+      "parent_message_id": null,
+      "created_at": "2026-11-22T10:18:46.655Z",
+      "sender": "ios",
+      "is_cancelled": false
+    },
+    {
+      "id": "cf22057b-98f6-4c68-8dce-c5b644dfa791",
+      "role": "agent",
+      "content": "حقك تماماً! \n\n**ما هو المنهج الذي تريد أن نعمله؟** \n(عن أي مجال، مادة، أو تخصص تريده؟)",
+      "status": "completed",
+      "model": "gemini-3.8-flash-high",
+      "client_type": "gemini-bridge",
+      "parent_message_id": "c215412b-8660-4c6a-a339-df4bcc48cff3",
+      "created_at": "2026-11-22T10:18:54.186Z",
+      "sender": "macOS",
       "is_cancelled": false
     }
   ]
