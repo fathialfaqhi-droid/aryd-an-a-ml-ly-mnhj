@@ -77,11 +77,26 @@ function switchTab(tabId) {
 }
 
 /* Curriculum Rendering */
-function renderCurriculum() {
+function renderCurriculum(filterQuery = '') {
   const container = document.getElementById('levels-container');
   if (!container) return;
 
-  container.innerHTML = CURRICULUM_DATA.levels.map(level => {
+  const query = filterQuery.trim().toLowerCase();
+
+  container.innerHTML = CURRICULUM_DATA.levels.map((level, lvlIdx) => {
+    // Filter units if query is provided
+    const visibleUnits = level.units.filter(u => {
+      if (!query) return true;
+      const titleMatch = u.title.toLowerCase().includes(query);
+      const summaryMatch = u.summary.toLowerCase().includes(query);
+      const vocabMatch = u.keyVocabulary.some(v => v.word.toLowerCase().includes(query) || v.ar.toLowerCase().includes(query));
+      return titleMatch || summaryMatch || vocabMatch;
+    });
+
+    if (query && visibleUnits.length === 0) {
+      return '';
+    }
+
     const isCompleted = level.units.every(u => AppState.completedUnits.includes(u.id));
     
     return `
@@ -99,8 +114,11 @@ function renderCurriculum() {
         </div>
 
         <div class="units-accordion">
-          ${level.units.map((unit, idx) => {
+          ${level.units.map((unit, uIdx) => {
             const unitDone = AppState.completedUnits.includes(unit.id);
+            const isMatch = !query || visibleUnits.includes(unit);
+            if (!isMatch) return '';
+
             return `
               <div class="unit-item" id="unit-wrap-${unit.id}">
                 <div class="unit-header" onclick="toggleUnit('${unit.id}')">
@@ -108,7 +126,7 @@ function renderCurriculum() {
                     <button class="btn-check ${unitDone ? 'checked' : ''}" onclick="event.stopPropagation(); toggleUnitComplete('${unit.id}')" title="تحديد كوحدة منجزة">
                       ${unitDone ? '✅' : '⚪'}
                     </button>
-                    <span class="unit-header-title">${idx + 1}. ${unit.title}</span>
+                    <span class="unit-header-title">${uIdx + 1}. ${unit.title}</span>
                   </div>
                   <span class="accordion-arrow" id="arrow-${unit.id}">▼</span>
                 </div>
@@ -126,11 +144,11 @@ function renderCurriculum() {
                   </h4>
 
                   <div class="vocab-grid">
-                    ${unit.keyVocabulary.map(v => `
+                    ${unit.keyVocabulary.map((v, vIdx) => `
                       <div class="vocab-card ltr-content">
                         <div class="vocab-word-row">
                           <span class="vocab-word">${v.word}</span>
-                          <button class="btn btn-sm btn-secondary" onclick="audioEngine.speak('${v.word.replace(/'/g, "\\'")}')">
+                          <button class="btn btn-sm btn-secondary" onclick="speakVocabWord(${lvlIdx}, ${uIdx}, ${vIdx})">
                             🔊 ${v.phonetic}
                           </button>
                         </div>
@@ -147,8 +165,8 @@ function renderCurriculum() {
                     <div style="margin-bottom:0.6rem;" class="ltr-content">
                       <strong style="direction:rtl; display:block; margin-bottom:0.25rem;">🗣️ Speaking Practice Prompt:</strong>
                       <span style="font-style:italic; color:var(--text-dark);">"${unit.speakingPrompt}"</span>
-                      <button class="btn btn-sm btn-secondary" style="margin-top:0.4rem;" onclick="audioEngine.speak('${unit.speakingPrompt.replace(/'/g, "\\'")}')">
-                        🔊 استمع لنطق السؤال
+                      <button class="btn btn-sm btn-secondary" style="margin-top:0.4rem; display:block;" onclick="speakUnitPrompt(${lvlIdx}, ${uIdx})">
+                        🔊 استمع لنطق السؤال بالكامل
                       </button>
                     </div>
                     <div style="font-size:0.85rem; color:var(--secondary); font-weight:600;">
@@ -162,7 +180,36 @@ function renderCurriculum() {
         </div>
       </div>
     `;
-  }).join('');
+  }).filter(Boolean).join('');
+
+  if (container.innerHTML.trim() === '') {
+    container.innerHTML = `
+      <div style="text-align:center; padding:3rem; color:var(--text-muted); grid-column:1 / -1;">
+        <p style="font-size:1.1rem; font-weight:700;">لم يتم العثور على نتائج تطابق: "${filterQuery}"</p>
+        <button class="btn btn-secondary btn-sm" style="margin-top:0.75rem;" onclick="document.getElementById('curriculum-search').value=''; renderCurriculum('');">
+          إعادة تعيين البحث
+        </button>
+      </div>
+    `;
+  }
+}
+
+function speakVocabWord(lvlIdx, uIdx, vIdx) {
+  try {
+    const word = CURRICULUM_DATA.levels[lvlIdx].units[uIdx].keyVocabulary[vIdx].word;
+    if (word) audioEngine.speak(word);
+  } catch (e) {
+    console.error('Error speaking word', e);
+  }
+}
+
+function speakUnitPrompt(lvlIdx, uIdx) {
+  try {
+    const prompt = CURRICULUM_DATA.levels[lvlIdx].units[uIdx].speakingPrompt;
+    if (prompt) audioEngine.speak(prompt);
+  } catch (e) {
+    console.error('Error speaking prompt', e);
+  }
 }
 
 function toggleUnit(unitId) {
