@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مسار الإتقان الأكاديمي | MasterEnglish Academy</title>
+  <meta name="description" content="منهج متكامل لتعلم اللغة الإنجليزية من التأسيس حتى احتراف التوفل والآيلتس ومنح الماجستير العالمية مع صوتيات ورسوميات تفاعلية">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#" class="brand-wrapper" onclick="switchTab('curriculum'); return false;">
+        <div class="brand-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-0.5-.05"/>
+            <path d="M6 6h10"/>
+            <path d="M6 10h10"/>
+            <path d="m9 16 2 2 4-4"/>
+          </svg>
+        </div>
+        <div>
+          <h1 class="brand-title">مسار الإتقان الأكاديمي</h1>
+          <p class="brand-subtitle">MasterEnglish Academy • IELTS • TOEFL • Scholarships</p>
+        </div>
+      </a>
+
+      <!-- Quick Audio Controls in Nav -->
+      <div class="nav-actions">
+        <div style="display:flex; align-items:center; gap:0.5rem; background:var(--bg-main); padding:0.35rem 0.65rem; border-radius:var(--radius-md); border:1px solid var(--border-color); font-size:0.82rem;">
+          <span>🗣️ اللهجة:</span>
+          <select id="accent-select" style="background:transparent; border:none; color:var(--text-dark); font-weight:700; font-family:inherit; cursor:pointer;">
+            <option value="en-US">أمريكية (US)</option>
+            <option value="en-GB">بريطانية (UK)</option>
+          </select>
+          <span style="border-left:1px solid var(--border-color); height:16px; margin:0 0.2rem;"></span>
+          <span>⚡ السرعة:</span>
+          <select id="speed-select" style="background:transparent; border:none; color:var(--text-dark); font-weight:700; font-family:inherit; cursor:pointer;">
+            <option value="0.8">0.8x هادئ</option>
+            <option value="0.95" selected>1.0x طبيعي</option>
+            <option value="1.15">1.2x سريع</option>
+          </select>
+        </div>
+
+        <button id="theme-toggle-btn" class="btn btn-secondary btn-sm" title="تبديل الوضع الليلي / النهاري">
+          🌙
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Horizontal Scrollable Navigation Tabs -->
+  <nav class="tabs-scroller">
+    <div class="tabs-container">
+      <button class="tab-btn active" data-tab="curriculum">
+        📚 المنهج الأكاديمي الشامل
+      </button>
+      <button class="tab-btn" data-tab="scholarships">
+        🎓 منح الماجستير ودليل السفر
+      </button>
+      <button class="tab-btn" data-tab="audio">
+        🎧 مختبر الصوتيات والاستماع
+      </button>
+      <button class="tab-btn" data-tab="flashcards">
+        🗂️ البطاقات الأكاديمية ونطق الميكروفون
+      </button>
+      <button class="tab-btn" data-tab="quiz">
+        📝 اختبار تحديد المستوى (Diagnostic)
+      </button>
+      <button class="tab-btn" data-tab="templates">
+        📑 نماذج الـ SOP والخطابات الرسمية
+      </button>
+      <button class="tab-btn" data-tab="planner">
+        📅 مولد جدول المذاكرة الذكي
+      </button>
+      <button class="tab-btn" data-tab="status">
+        💬 مركز الدعم وضمان الاستمرار
+      </button>
+    </div>
+  </nav>
+
+  <!-- Main Body Content -->
+  <main class="main-wrapper">
+
+    <!-- Hero Card -->
+    <section class="hero-card">
+      <div class="hero-badge">
+        <span>🚀</span> منصة أكاديمية متكاملة للطلاب والباحثين للمنافسة العالمية
+      </div>
+      <h2 class="hero-title">
+        منهجك المتكامل من التأسيس إلى احتراف الآيلتس والتوفل وقبول منح الماجستير
+      </h2>
+      <p class="hero-desc">
+        صُمم هذا المسار خصيصاً ليمنحك الكفاءة اللغوية والأكاديمية العالية لاجتياز امتحانات <strong>IELTS Academic 7.5+</strong> و <strong>TOEFL iBT 100+</strong>، وبناء ملف تنافسي قوي للتقديم على منح الماجستير العالمية المرموقة (تشيفنينغ، فولبرايت، إيراسموس، داد الألمانية، والتركية) والسفر والتميز في أي مكان.
+      </p>
+
+      <div style="display:flex; flex-wrap:wrap; gap:0.75rem; margin-bottom:1.5rem;">
+        <button class="btn btn-teal" onclick="switchTab('curriculum')">
+          📖 تصفح المنهج والدروس
+        </button>
+        <button class="btn btn-secondary" onclick="switchTab('quiz')" style="background:rgba(255,255,255,0.15); color:white; border-color:rgba(255,255,255,0.3);">
+          🎯 اختبار قياس المستوى الفوري
+        </button>
+        <button class="btn btn-secondary" onclick="switchTab('scholarships')" style="background:rgba(255,255,255,0.15); color:white; border-color:rgba(255,255,255,0.3);">
+          🇾🇪 دليل المنح وتوجيهات الطلاب
+        </button>
+      </div>
+
+      <!-- Stats Bar -->
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num" id="hero-progress-pct">0%</div>
+          <div class="stat-label">نسبة إنجازك الكلية للمنهج</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">5 مستويات</div>
+          <div class="stat-label">من A2 حتى C1 الأكاديمي</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">IELTS + TOEFL</div>
+          <div class="stat-label">محاكاة واستراتيجيات Band 8+</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">6 منح عالمية</div>
+          <div class="stat-label">بما فيها Chevening و Fulbright</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 1: CURRICULUM -->
+    <section id="tab-curriculum" class="tab-pane active">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">📚 المسار التعليمي المتدرج (5 مستويات تخصصية)</h2>
+          <p class="section-subtitle">
+            كل مستوى يحتوي على شروحات، مفردات صوتية، قواعد تطبيقية، ونماذج عملية للاختبارات الدولية. ضع علامة (✅) عند إنجاز أي وحدة لحفظ تقدمك.
+          </p>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:0.75rem;">
+          <div style="font-size:0.85rem; font-weight:700; color:var(--text-muted);" id="overall-progress-text">
+            0% منجز
+          </div>
+          <div style="width:120px; height:8px; background:var(--border-color); border-radius:50px; overflow:hidden;">
+            <div id="overall-progress-bar" style="height:100%; width:0%; background:var(--primary); transition:width 0.4s ease;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="levels-grid" id="levels-container">
+        <!-- Rendered dynamically by js/app.js -->
+      </div>
+    </section>
+
+    <!-- TAB 2: SCHOLARSHIPS & YEMEN GUIDE -->
+    <section id="tab-scholarships" class="tab-pane" style="display:none;">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">🎓 بوابة منح الماجستير والسفر والدراسة بالخارج</h2>
+          <p class="section-subtitle">
+            دليل تحليلي شامل لأقوى المنح الممولة بالكامل عالمياً مع شروط اللغة وطريقة كتابة المقالات التنافسية.
+          </p>
+        </div>
+      </div>
+
+      <!-- Yemen Playbook Section -->
+      <div id="yemen-guide-container" style="margin-bottom:2rem;"></div>
+
+      <h3 style="font-size:1.25rem; font-weight:800; margin-bottom:1rem; color:var(--text-dark);">
+        🌐 أقوى المنح الدولية السنوية وشروط القبول:
+      </h3>
+      <div class="scholarship-grid" id="scholarships-container">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+    <!-- TAB 3: AUDIO LAB -->
+    <section id="tab-audio" class="tab-pane" style="display:none;">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">🎧 مختبر الصوتيات والاستماع الأكاديمي</h2>
+          <p class="section-subtitle">
+            استمع لمحاضرات أكاديمية حقيقية بنطق نقي (أمريكي / بريطاني) واختبر قدرتك على الاستيعاب والإجابة على الأسئلة على نمط التوفل والآيلتس.
+          </p>
+        </div>
+
+        <div class="audio-bar-container" title="مؤشر الصوت النشط">
+          <div class="audio-bar"></div>
+          <div class="audio-bar"></div>
+          <div class="audio-bar"></div>
+          <div class="audio-bar"></div>
+        </div>
+      </div>
+
+      <div id="audio-lectures-container">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+    <!-- TAB 4: FLASHCARDS & PRONUNCIATION -->
+    <section id="tab-flashcards" class="tab-pane" style="display:none;">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">🗂️ بطاقات المفردات الأكاديمية واختبار النطق بالميكروفون</h2>
+          <p class="section-subtitle">
+            انقر على البطاقة لقلبها واكتشاف المعنى والسياق. استمع للنطق الصوتي ثم اختبر مخارج حروفك مباشرة عبر الميكروفون.
+          </p>
+        </div>
+        <span id="fc-counter" style="font-weight:700; color:var(--primary); font-size:1.05rem;">1 / 20</span>
+      </div>
+
+      <div class="flashcard-wrapper">
+        <div class="flashcard" id="active-flashcard" onclick="flipFlashcard()">
+          <!-- Front Face -->
+          <div class="flashcard-face ltr-content">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <span id="fc-topic" style="font-size:0.75rem; font-weight:700; background:rgba(30,58,138,0.1); color:var(--primary); padding:0.25rem 0.6rem; border-radius:50px;">
+                Academic
+              </span>
+              <span style="font-size:0.8rem; color:var(--text-muted);">🔄 انقر للقلب</span>
+            </div>
+
+            <div style="text-align:center; margin:1.5rem 0;">
+              <h2 id="fc-word" style="font-size:2.2rem; font-weight:900; color:var(--primary); margin-bottom:0.35rem;">
+                Advocate
+              </h2>
+              <p id="fc-phonetic" style="font-size:1.05rem; color:var(--text-muted); font-style:italic;">
+                /ˈædvəkeɪt/
+              </p>
+              <span id="fc-pos" style="display:inline-block; margin-top:0.35rem; font-size:0.8rem; font-weight:600; color:var(--secondary);">
+                verb / noun
+              </span>
+            </div>
+
+            <div style="text-align:center;">
+              <button class="btn btn-secondary btn-sm" onclick="event.stopPropagation(); speakCurrentFlashcard()">
+                🔊 استمع للنطق
+              </button>
+            </div>
+          </div>
+
+          <!-- Back Face -->
+          <div class="flashcard-face flashcard-back">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <span style="font-size:0.8rem; font-weight:700; color:var(--secondary);">المعنى والسياق الأكاديمي</span>
+              <span style="font-size:0.8rem; color:var(--text-muted);">🔄 انقر للعودة</span>
+            </div>
+
+            <div style="margin:1rem 0;">
+              <h3 id="fc-meaning" style="font-size:1.35rem; font-weight:800; color:var(--text-dark); margin-bottom:0.75rem; direction:rtl;">
+                يؤيد ويدافع عن / محامي لقضية
+              </h3>
+              <div class="ltr-content" style="background:var(--bg-main); padding:0.75rem 1rem; border-radius:var(--radius-md); border:1px solid var(--border-color);">
+                <span style="font-size:0.75rem; color:var(--text-muted); display:block; margin-bottom:0.25rem;">Exemplary Sentence:</span>
+                <p id="fc-sentence" style="font-size:0.95rem; font-style:italic; color:var(--text-dark);">
+                  "She advocates for educational equity for marginalized students."
+                </p>
+              </div>
+            </div>
+
+            <div style="text-align:center;">
+              <button class="btn btn-secondary btn-sm" onclick="event.stopPropagation(); speakCurrentFlashcard()">
+                🔊 استمع للجملة كاملة
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation & Mic Practice Controls -->
+      <div style="display:flex; justify-content:center; align-items:center; gap:0.75rem; margin-bottom:1.5rem;">
+        <button class="btn btn-secondary" onclick="prevFlashcard()">
+          ⬅️ السابقة
+        </button>
+        <button class="btn btn-primary" onclick="testCurrentWordPronunciation()">
+          🎙️ اختبر نطقي بالميكروفون
+        </button>
+        <button class="btn btn-secondary" onclick="nextFlashcard()">
+          التالية ➡️
+        </button>
+      </div>
+
+      <div style="text-align:center; max-width:550px; margin:0 auto; min-height:40px;">
+        <p id="mic-status-msg" style="font-size:0.9rem; font-weight:600; color:var(--text-muted);">
+          اضغط زر الميكروفون وتحدث بالكلمة مباشرة لاختبار دقة نطقك ومخارج الحروف.
+        </p>
+      </div>
+    </section>
+
+    <!-- TAB 5: DIAGNOSTIC TEST -->
+    <section id="tab-quiz" class="tab-pane" style="display:none;">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">📝 اختبار تحديد المستوى والتشخيص الأكاديمي</h2>
+          <p class="section-subtitle">
+            أجب على الأسئلة التخصصية لمعرفة مستواك المقارب في معايير CEFR (B1, B2, C1) والدرجة المتوقعة في الآيلتس والتوفل.
+          </p>
+        </div>
+      </div>
+
+      <div id="diagnostic-container">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+    <!-- TAB 6: TEMPLATES & APPLICATION SUITE -->
+    <section id="tab-templates" class="tab-pane" style="display:none;">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">📑 نماذج وقوالب التقديم للمنح ومراسلة الجامعات</h2>
+          <p class="section-subtitle">
+            قوالب جاهزة معتمدة تم مراجعتها أكاديمياً لصياغة خطاب الغرض من الدراسة (SOP) وإيميلات مراسلة الدكاترة والمشرفين.
+          </p>
+        </div>
+      </div>
+
+      <!-- SOP Template -->
+      <div class="content-card">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; flex-wrap:wrap; gap:0.5rem;">
+          <div>
+            <h3 style="font-size:1.15rem; font-weight:800; color:var(--primary);">
+              📜 النموذج الأكاديمي لخطاب الدوافع (Statement of Purpose - Master's SOP)
+            </h3>
+            <p style="font-size:0.85rem; color:var(--text-muted);">
+              هيكل من 4 أقسام يبرز الشغف الأكاديمي، مشروع التخرج، التغلب على الصعاب، والرؤية المستقبلية.
+            </p>
+          </div>
+          <button class="btn btn-secondary btn-sm" onclick="copyTemplate('sop-template-box')">
+            📋 نسخ القالب بالكامل
+          </button>
+        </div>
+
+        <pre class="ltr-content" id="sop-template-box" style="background:var(--bg-main); padding:1.25rem; border-radius:var(--radius-md); border:1px solid var(--border-color); font-size:0.88rem; line-height:1.65; white-space:pre-wrap; max-height:420px; overflow-y:auto;"></pre>
+      </div>
+
+      <!-- Cold Email Template -->
+      <div class="content-card">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; flex-wrap:wrap; gap:0.5rem;">
+          <div>
+            <h3 style="font-size:1.15rem; font-weight:800; color:var(--secondary);">
+              ✉️ قالب مراسلة الأساتذة لطلب الإشراف الأكاديمي (Cold Email to Professor)
+            </h3>
+            <p style="font-size:0.85rem; color:var(--text-muted);">
+              صيغة رسمية مختصرة تزيد من احتمالية فتح وقراءة إيميلك من قبل دكاترة الجامعات في أوروبا وأمريكا.
+            </p>
+          </div>
+          <button class="btn btn-secondary btn-sm" onclick="copyTemplate('cold-email-template-box')">
+            📋 نسخ إيميل المراسلة
+          </button>
+        </div>
+
+        <pre class="ltr-content" id="cold-email-template-box" style="background:var(--bg-main); padding:1.25rem; border-radius:var(--radius-md); border:1px solid var(--border-color); font-size:0.88rem; line-height:1.65; white-space:pre-wrap; max-height:300px; overflow-y:auto;"></pre>
+      </div>
+    </section>
+
+    <!-- TAB 7: STUDY PLANNER -->
+    <section id="tab-planner" class="tab-pane" style="display:none;">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">📅 مولد جدول المذاكرة الذكي المخصص</h2>
+          <p class="section-subtitle">
+            حدد عدد الساعات المتاحة لك أسبوعياً وهدفك النهائي ليقوم النظام ببرمجة خطة يومية وأسبوعية تضمن التزامك وعدم التشتت.
+          </p>
+        </div>
+      </div>
+
+      <div class="content-card">
+        <form id="planner-form" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:1.25rem; align-items:flex-end;">
+          <div>
+            <label style="display:block; font-weight:700; font-size:0.9rem; margin-bottom:0.4rem;">
+              ⏱️ عدد الساعات الأسبوعية المتاحة:
+            </label>
+            <input type="number" id="plan-hours" value="12" min="4" max="45" style="width:100%; padding:0.65rem 0.85rem; border:1px solid var(--border-color); border-radius:var(--radius-md); font-family:inherit; background:var(--bg-main); color:var(--text-dark);">
+          </div>
+
+          <div>
+            <label style="display:block; font-weight:700; font-size:0.9rem; margin-bottom:0.4rem;">
+              📆 الفترة الزمنية للوصول للهدف:
+            </label>
+            <select id="plan-months" style="width:100%; padding:0.65rem 0.85rem; border:1px solid var(--border-color); border-radius:var(--radius-md); font-family:inherit; background:var(--bg-main); color:var(--text-dark);">
+              <option value="2">شهران (مكثف جداً)</option>
+              <option value="3" selected>3 أشهر (خطة مثالية متوازنة)</option>
+              <option value="6">6 أشهر (تأسيس متأنٍ واحتراف)</option>
+              <option value="9">9 أشهر (للمبتدئين حتى المنح)</option>
+            </select>
+          </div>
+
+          <div>
+            <label style="display:block; font-weight:700; font-size:0.9rem; margin-bottom:0.4rem;">
+              🎯 الهدف الأساسي:
+            </label>
+            <select id="plan-target" style="width:100%; padding:0.65rem 0.85rem; border:1px solid var(--border-color); border-radius:var(--radius-md); font-family:inherit; background:var(--bg-main); color:var(--text-dark);">
+              <option value="التقديم على منح الماجستير (IELTS 7.0+ & SOP)">منح الماجستير (IELTS 7.0+ & SOP)</option>
+              <option value="اجتياز اختبار الآيلتس الأكاديمي (Band 7.5+)">اجتياز اختبار الآيلتس (Band 7.5+)</option>
+              <option value="اجتياز اختبار التوفل الدولي (TOEFL 100+)">اجتياز اختبار التوفل الدولي (100+)</option>
+              <option value="الطلاقة والتحدث الأكاديمي والسفر">الطلاقة العامة والسفر</option>
+            </select>
+          </div>
+
+          <div>
+            <button type="submit" class="btn btn-primary" style="width:100%; padding:0.75rem;">
+              🚀 إنشاء / تحديث جدول دراستي
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div id="planner-results" style="display:none; margin-top:1.5rem;"></div>
+    </section>
+
+    <!-- TAB 8: CONTINUOUS SERVICE & SUPPORT -->
+    <section id="tab-status" class="tab-pane" style="display:none;">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">💬 مركز الدعم الفني وضمان استمرار المنصة دون انقطاع</h2>
+          <p class="section-subtitle">
+            حرصاً على ألا تنقطع عن دراستك؛ هذه المنصة تعمل حتى بدون إنترنت مستمر، وتوفر قناة تواصل مباشرة لمعالجة أي إشكال فوراً.
+          </p>
+        </div>
+        <div id="system-status-indicator" class="status-pill status-online">
+          <span class="status-dot"></span>
+          <span>جاري فحص حالة النظام...</span>
+        </div>
+      </div>
+
+      <div class="content-card" style="margin-bottom:1.5rem;">
+        <h3 style="font-size:1.15rem; font-weight:800; margin-bottom:0.5rem; color:var(--primary);">
+          🛡️ فحص المكونات التفاعلية للمنصة:
+        </h3>
+        <p style="font-size:0.9rem; color:var(--text-muted); line-height:1.6;">
+          المنصة مصممة بأحدث تقنيات الويب المستقلة (Self-Contained Client Architecture) دون الاعتماد على خوادم وسيطة معرضة للسقوط، مما يضمن لك دراسة مستمرة وتصفحاً سريعاً.
+        </p>
+
+        <div id="system-status-details"></div>
+      </div>
+
+      <!-- Support / Disruption Report Form -->
+      <div class="content-card">
+        <h3 style="font-size:1.2rem; font-weight:800; margin-bottom:0.75rem; color:var(--text-dark);">
+          📢 إبلاغ عن مشكلة أو انقطاع أو طلب مساعدة في التقديم
+        </h3>
+        <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:1.25rem;">
+          إذا واجهت أي خلل، أو رغبت في إضافة مادة معينة، املأ البيانات وسيقوم النظام بتوجيه رسالتك مباشرة عبر الواتساب والبريد المعتمد للتواصل معك وحل المشكلة فوراً:
+        </p>
+
+        <form id="contact-form" style="display:grid; grid-template-columns:1fr 1fr; gap:1.25rem;">
+          <div>
+            <label style="display:block; font-weight:700; font-size:0.88rem; margin-bottom:0.4rem;">
+              👤 اسمك الكامل:
+            </label>
+            <input type="text" id="contact-name" required placeholder="مثال: أحمد عبد الله" style="width:100%; padding:0.65rem 0.85rem; border:1px solid var(--border-color); border-radius:var(--radius-md); font-family:inherit; background:var(--bg-main); color:var(--text-dark);">
+          </div>
+
+          <div>
+            <label style="display:block; font-weight:700; font-size:0.88rem; margin-bottom:0.4rem;">
+              📱 رقم الواتساب أو الهاتف:
+            </label>
+            <input type="text" id="contact-phone" required placeholder="مثال: +967 7XXXXXXXX" style="width:100%; padding:0.65rem 0.85rem; border:1px solid var(--border-color); border-radius:var(--radius-md); font-family:inherit; background:var(--bg-main); color:var(--text-dark);">
+          </div>
+
+          <div style="grid-column:1 / -1;">
+            <label style="display:block; font-weight:700; font-size:0.88rem; margin-bottom:0.4rem;">
+              🏷️ نوع الرسالة:
+            </label>
+            <select id="contact-type" style="width:100%; padding:0.65rem 0.85rem; border:1px solid var(--border-color); border-radius:var(--radius-md); font-family:inherit; background:var(--bg-main); color:var(--text-dark);">
+              <option value="انقطاع أو خلل في الصوتيات">انقطاع أو خلل في الصوتيات والموقع</option>
+              <option value="استفسار عن منحة أو معادلة شهادات">استفسار عن منحة أو معادلة شهادات السفر من اليمن</option>
+              <option value="طلب إضافة درس أو اختبار جديد">طلب إضافة درس أو اختبار جديد</option>
+              <option value="اقتراح تطوير للمنصة">اقتراح تطوير للمنصة</option>
+            </select>
+          </div>
+
+          <div style="grid-column:1 / -1;">
+            <label style="display:block; font-weight:700; font-size:0.88rem; margin-bottom:0.4rem;">
+              📝 التفاصيل وملاحظاتك:
+            </label>
+            <textarea id="contact-msg" rows="4" required placeholder="اشرح بالتفصيل ما حدث معك أو استفسارك..." style="width:100%; padding:0.75rem; border:1px solid var(--border-color); border-radius:var(--radius-md); font-family:inherit; background:var(--bg-main); color:var(--text-dark); resize:vertical;"></textarea>
+          </div>
+
+          <div style="grid-column:1 / -1; display:flex; gap:1rem; flex-wrap:wrap;">
+            <button type="submit" class="btn btn-teal" style="flex:1;">
+              💬 إرسال البلاغ والمراسلة عبر WhatsApp فوراً
+            </button>
+            <button type="button" class="btn btn-secondary" onclick="checkSystemHealth()">
+              🔄 إعادة فحص حالة النظام الآن
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer style="background:var(--bg-card); border-top:1px solid var(--border-color); padding:2rem 1.25rem; text-align:center; font-size:0.88rem; color:var(--text-muted); margin-top:auto;">
+    <div style="max-width:1300px; margin:0 auto; display:flex; flex-direction:column; gap:0.75rem; align-items:center;">
+      <p style="font-weight:700; color:var(--text-dark);">
+        🎓 مسار الإتقان الأكاديمي (MasterEnglish Academy) — منهج متكامل لإتقان الإنجليزية، الآيلتس، التوفل، ومنح الماجستير
+      </p>
+      <p>
+        تم التطوير لخدمة الطلاب والباحثين الطامحين للسفر والتعليم العالي من اليمن وكل أرجاء العالم العربي.
+      </p>
+      <p style="font-size:0.8rem;">
+        يعمل التطبيق بكفاءة متواصلة مع الحفظ التلقائي للتقدم محلياً على جهازك.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
